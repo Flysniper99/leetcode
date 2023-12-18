@@ -13,7 +13,6 @@ class Solution_28 {
             }
         }
         return -1;
-
     }
 
     private void getNext(int[] next, String s) {
