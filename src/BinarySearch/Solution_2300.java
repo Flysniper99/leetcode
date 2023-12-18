@@ -1,3 +1,5 @@
+package BinarySearch;
+
 import java.util.Arrays;
 
 class Solution_2300 {
