@@ -1,3 +1,7 @@
+package BinaryTree;
+
+import BinaryTree.TreeNode;
+
 import java.util.*;
 
 class Solution_145 {
@@ -25,5 +29,23 @@ class Solution_145 {
             if (cur.right != null) stack.addFirst(cur.right);
         }
         Collections.reverse(result);
+    }
+
+    public void postorder_3(TreeNode root, List<Integer> result) {
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+
+        stack.offerFirst(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pollFirst();
+            if (cur != null) {
+                stack.offerFirst(cur);
+                stack.offerFirst(null);
+                if (cur.right != null) stack.offerFirst(cur.right);
+                if (cur.left != null) stack.offerFirst(cur.left);
+            }else {
+                result.add(stack.pollFirst().val);
+            }
+        }
     }
 }

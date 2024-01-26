@@ -1,7 +1,8 @@
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+package BinaryTree;
+
+import BinaryTree.TreeNode;
+
+import java.util.*;
 
 class Solution_94 {
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -34,4 +35,21 @@ class Solution_94 {
         }
     }
 
+    public void inorder_3(TreeNode root, List<Integer> result) {
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+
+        stack.offerFirst(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pollFirst();
+            if (cur != null) {
+                if (cur.right != null) stack.offerFirst(cur.right);
+                stack.offerFirst(cur);
+                stack.offerFirst(null);
+                if (cur.left != null) stack.offerFirst(cur.left);
+            }else {
+                result.add(stack.pollFirst().val);
+            }
+        }
+    }
 }

@@ -1,3 +1,5 @@
+package String;
+
 class Solution_28 {
     public int strStr(String haystack, String needle) {
         int[] next = new int[needle.length()];
