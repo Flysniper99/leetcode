@@ -1,5 +1,8 @@
 package DynamicProgramming;
 
+/**
+ * 斐波那契数
+ */
 class Solution_509 {
     public int fib(int n) {
         int[] dp = new int[n + 1];

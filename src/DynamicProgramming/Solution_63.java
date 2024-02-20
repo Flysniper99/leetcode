@@ -1,5 +1,8 @@
 package DynamicProgramming;
 
+/**
+ * 不同路径II
+ */
 class Solution_63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m = obstacleGrid.length;
@@ -12,7 +15,7 @@ class Solution_63 {
                 continue;
             }
             if (obstacleGrid[i][0] == 1) {
-                for (int j = i; j < m; j++) {  //初始行出现障碍物，该位置及后面的位置dp都为0
+                for (int j = i; j < m; j++) {   //初始行出现障碍物，该位置及后面的位置dp都为0
                     dp[j][0] = 0;
                 }
                 break;

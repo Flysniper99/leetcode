@@ -1,5 +1,8 @@
 package DynamicProgramming;
 
+/**
+ * 最小花费爬楼梯
+ */
 class Solution_746 {
     public int minCostClimbingStairs(int[] cost) {
         int[] dp = new int[cost.length + 1];

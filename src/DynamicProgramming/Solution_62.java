@@ -1,5 +1,8 @@
 package DynamicProgramming;
 
+/**
+ * 不同路径
+ */
 class Solution_62 {
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m + 1][n + 1];
