@@ -1,3 +1,5 @@
+package DailyQue;
+
 class Solution_83 {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode cur = head;

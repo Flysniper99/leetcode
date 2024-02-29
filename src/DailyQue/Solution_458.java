@@ -1,3 +1,5 @@
+package DailyQue;
+
 class Solution_458 {
     public int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
         int n = minutesToTest / minutesToDie;

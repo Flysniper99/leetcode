@@ -1,3 +1,5 @@
+package DailyQue;
+
 class Solution_2645 {
     public int addMinimum(String word) {
         int cnt = 1;

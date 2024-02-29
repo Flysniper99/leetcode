@@ -1,3 +1,5 @@
+package DailyQue;
+
 class Solution_2697 {
     public String makeSmallestPalindrome(String s) {
         char[] ch = s.toCharArray();

@@ -1,3 +1,5 @@
+package DailyQue;
+
 class Solution_82 {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode dummyHead = new ListNode(-1);

@@ -1,3 +1,5 @@
+package DailyQue;
+
 import java.util.List;
 
 class Solution_2859 {

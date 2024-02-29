@@ -1,3 +1,5 @@
+package DailyQue;
+
 import java.util.PriorityQueue;
 
 class Solution_2182 {

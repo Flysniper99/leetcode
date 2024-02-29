@@ -1,3 +1,5 @@
+package DailyQue;
+
 import java.util.Arrays;
 
 class Solution_2171 {
