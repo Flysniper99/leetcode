@@ -13,6 +13,12 @@ package twopointer;
 public class Solution80 {
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
+        if (n == 1) {
+            return n;
+        }
+        if (n == 2) {
+            return n;
+        }
         int index = 0;
         int cnt = 1;
         for (int i = 1; i < n; i++) {
@@ -34,6 +40,6 @@ public class Solution80 {
                 }
             }
         }
-        return index + 1;
+        return index;
     }
 }
