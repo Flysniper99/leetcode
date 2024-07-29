@@ -23,12 +23,14 @@ public class Solution80 {
                 }
             } else {
                 if (cnt > 2) {
-                    for (int j = 0; j < cnt - 2; j++) {
+                    for (int j = 0; j < n - i; j++) {
                         nums[index + j] = nums[i + j];
                     }
                     cnt = 1;
                 } else if (cnt < 2) {
                     index++;
+                } else {
+                    cnt = 1;
                 }
             }
         }
