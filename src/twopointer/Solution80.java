@@ -45,7 +45,7 @@ public class Solution80 {
                         nums[index + j] = nums[i + j];
                     }
                     n = n - (i - index);
-                    //计数更新，i从index开始便利
+                    //计数更新，i从index开始遍历
                     cnt = 1;
                     i = index;
                 } else if (cnt < 2) {
