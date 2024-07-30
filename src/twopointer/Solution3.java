@@ -28,17 +28,13 @@ class Solution3 {
         int left = 0;
         map.put(ch[0], 0);
         for (int right = 1; right < n; right++) {
-            if (!map.containsKey(ch[right])) {
-                if (right == n - 1) {
-                    return right - left + 1;
-                }
-                map.put(ch[right], right);
-                res = Math.max(res, right - left);
-            } else {
-                res = Math.max(res, right - left);
-                left = map.get(ch[right]) + 1;
-                map.put(ch[right], right);
+            if (map.containsKey(ch[right])) {
+                //abba，注意left的取值情况，避免left回退
+                left = Math.max(left, map.get(ch[right]) + 1);
             }
+            //map中不存在当前元素时，自然添加进去，存在当前元素时，需要更新该元素的最新下标到map中
+            map.put(ch[right], right);
+            res = Math.max(res, right - left + 1);
         }
         return res;
     }
