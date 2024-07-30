@@ -15,6 +15,12 @@ import java.util.Map;
  */
 class Solution3 {
     public int lengthOfLongestSubstring(String s) {
+        if (s.isEmpty()) {
+            return 0;
+        }
+        if (s.length() == 1) {
+            return 1;
+        }
         char[] ch = s.toCharArray();
         int n = ch.length;
         Map<Character, Integer> map = new HashMap<>();
@@ -23,11 +29,15 @@ class Solution3 {
         map.put(ch[0], 0);
         for (int right = 1; right < n; right++) {
             if (!map.containsKey(ch[right])) {
+                if (right == n - 1) {
+                    return right - left + 1;
+                }
                 map.put(ch[right], right);
                 res = Math.max(res, right - left);
             } else {
                 res = Math.max(res, right - left);
                 left = map.get(ch[right]) + 1;
+                map.put(ch[right], right);
             }
         }
         return res;
