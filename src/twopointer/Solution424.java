@@ -7,7 +7,7 @@ package twopointer;
 
 /**
  * @author : f50040149
- * @date : 2024/7/31 19:25
+ * @date : 2024/7/31 19:25 //基于vue.js的仿QQ聊天室
  * @since : 1.0
  */
 class Solution424 {
