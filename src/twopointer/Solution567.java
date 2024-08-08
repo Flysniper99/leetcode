@@ -27,12 +27,13 @@ class Solution567 {
         int right = 0;
         while (right < n) {
             map[ch2[right] - 'a']--;
-            right++;
-            while (left < right && map[ch2[right] - 'a'] < 0) {
+            while (left <= right && map[ch2[right] - 'a'] < 0) {
                 map[ch2[left] - 'a']++;
                 left++;
             }
-            if (right - left + 1 == m) {
+            right++;
+            //right加一了
+            if (right - left == m) {
                 return true;
             }
         }
