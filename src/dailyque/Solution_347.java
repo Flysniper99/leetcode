@@ -1,6 +1,12 @@
 package dailyque;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.PriorityQueue;
 
 class Solution_347 {
     public static int[] topKFrequent(int[] nums, int k) {
@@ -18,7 +24,7 @@ class Solution_347 {
         list.sort((o1, o2) -> (o1.getValue() - o2.getValue()));
         int[] res = new int[k];
         int cnt = 0;
-        for (int i = list.size() - 1; i > list.size() - k  - 1; i--) {
+        for (int i = list.size() - 1; i > list.size() - k - 1; i--) {
             res[cnt++] = list.get(i).getKey();
         }
         return res;
@@ -31,15 +37,20 @@ class Solution_347 {
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>((o1, o2) -> o1[1] - o2[1]);
+        // PriorityQueue<int[]> minHeap = new PriorityQueue<>((o1, o2) -> o1[1] - o2[1]);
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1] - o2[1];
+            }
+        });
         for (Integer i : map.keySet()) {
             if (minHeap.size() < k) {
-                minHeap.offer(new int[]{i, map.get(i)});
-            }
-            else {
+                minHeap.offer(new int[] {i, map.get(i)});
+            } else {
                 if (map.get(i) > Objects.requireNonNull(minHeap.peek())[1]) {
                     minHeap.poll();
-                    minHeap.offer(new int[]{i, map.get(i)});
+                    minHeap.offer(new int[] {i, map.get(i)});
                 }
             }
         }
