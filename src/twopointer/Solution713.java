@@ -12,8 +12,8 @@ package twopointer;
  */
 class Solution713 {
     public static void main(String[] args) {
-        int[] nums = new int[] {10, 9, 10, 4, 3, 8, 3, 3, 6, 2, 10, 10, 9, 3};
-        System.out.println(numSubarrayProductLessThanK(nums, 19));
+        int[] nums = new int[] {1, 2, 3};
+        System.out.println(numSubarrayProductLessThanK(nums, 0));
     }
 
     public static int numSubarrayProductLessThanK(int[] nums, int k) {
@@ -22,33 +22,15 @@ class Solution713 {
         int left = 0;
         int right = 0;
         int product = 1;
-        while (right < n) {
+        while (left <= right && right < n) {
             product *= nums[right];
-            if (product < k) {
-                if (right - left + 1 == 1) {
-                    res++;
-                } else {
-                    res += 2;
-                }
-            } else {
-                if (nums[right] < k) {
-                    res++;
-                    while (product >= k) {
-                        product /= nums[left];
-                        left++;
-                    }
-                    if (right - left + 1 > 1) {
-                        res++;
-                    }
-                } else {
-                    product = 1;
-                    left = right + 1;
-                }
+            //注意边界条件，窗口左边界不能超过右边界
+            while (left <= right && product >= k && left <= n - 1) {
+                product /= nums[left];
+                left++;
             }
+            res += right - left + 1;
             right++;
-        }
-        if (left < right && right == n) {
-            res += right - left - 2;
         }
         return res;
     }
