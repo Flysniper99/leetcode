@@ -10,8 +10,8 @@ public class ThreadPool {
 //        ExecutorService threadPool = Executors.newSingleThreadExecutor();
         //七个参数
         //最大线程数如何定义
-        //1、CPU密集型
-        //2、IO密集型 > 程序中非常耗IO资源的线程数
+        //1、CPU 密集型：充分利用 CPU 核心数，最大线程数为 CPU 核心数 + 1（+1 是备份线程）
+        //2、IO 密集型：线程数等于 CPU 核心数的两倍左右，以充分利用IO资源
 //        System.out.println(Runtime.getRuntime().availableProcessors());
         ExecutorService threadPool = new ThreadPoolExecutor(
                 2,
